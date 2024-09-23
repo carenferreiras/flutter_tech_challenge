@@ -5,7 +5,7 @@ class GetCharactersUsecase {
 
   GetCharactersUsecase(this.repository);
 
-  Future<List<CharacterEntity>> getCharacteres() async {
+  Future<List<Character>> getCharacteres() async {
     return await repository.getCharacteres();
   }
 }
