@@ -6,7 +6,12 @@ class CharacterModel extends Character {
     required String name,
     required String description,
     required String thumbnail,
-  }) : super(id: 0, name: '', description: '', thumbnail: '');
+  }) : super(
+          id: 0,
+          name: '',
+          description: '',
+          thumbnail: '',
+        );
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
     return CharacterModel(

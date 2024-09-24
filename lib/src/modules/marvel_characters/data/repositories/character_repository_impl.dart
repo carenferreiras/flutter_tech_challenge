@@ -1,3 +1,5 @@
+import 'package:flutter_tech_challenge/src/core/core.dart';
+
 import '../../marvel_characters.dart';
 
 class CharacterRepositoryImpl implements CharacterRepository {
@@ -6,10 +8,15 @@ class CharacterRepositoryImpl implements CharacterRepository {
   CharacterRepositoryImpl(this.dataSource);
 
   @override
-  Future<List<Character>> getCharacteres() async {
+  Future<List<CharacterModel>> getCharacteres() async {
     try {
-      return await dataSource.getCharacteres();
+      AppLogger.logInfo(
+          'Calling CharacterRemoteDataSource to fech characteres');
+      final characteres = await dataSource.getCharacteres();
+      AppLogger.logInfo('Characters Fetched sucessfully from DataSource');
+      return characteres;
     } catch (e) {
+      AppLogger.logError('Error in CharacterRepositoryImpl: $e');
       throw Exception('Failed to fetch characters: $e');
     }
   }

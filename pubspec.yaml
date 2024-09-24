@@ -38,6 +38,8 @@ dependencies:
   flutter_dotenv: ^5.1.0
   dio: ^5.7.0
   crypto: ^3.0.5
+  provider: ^6.1.2
+  logger: ^2.4.0
 
 dev_dependencies:
   flutter_test:
