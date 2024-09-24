@@ -55,7 +55,14 @@ As chaves da API Marvel utilizadas no projeto são apenas para fins de teste e j
 Esse README.md oferece uma visão clara sobre o projeto, suas funcionalidades, as tecnologias utilizadas, como rodar o aplicativo, e boas práticas de segurança, como a proteção das chaves de API.
 
 
+## Screenshots
 
+### Tela Inicial
+![1](https://github.com/user-attachments/assets/4fabb57f-27a8-437f-9625-636d474d56c8)
+
+
+### Detalhes do Personagem
+![2](https://github.com/user-attachments/assets/a73c654c-960f-4194-858a-04dd3ab57a4d)
 
 
 
