@@ -13,16 +13,7 @@ class CharacterDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundDarkGrey,
-      appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.only(bottom: AppSizes.s14),
-          child: Image.asset(
-            AppImages.logo,
-            fit: BoxFit.cover,
-          ),
-        ),
-        backgroundColor: AppColors.backgroundDarkGrey,
-      ),
+      appBar: const CustomAppBar(showLading: true,),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

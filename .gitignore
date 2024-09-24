@@ -32,7 +32,7 @@ migrate_working_dir/
 /build/
 
 # Ignore the .env file
-.env
+*.env
 
 # Symbolication related
 app.*.symbols

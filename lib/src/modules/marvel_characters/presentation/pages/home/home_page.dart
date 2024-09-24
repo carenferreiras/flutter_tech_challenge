@@ -33,16 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.only(bottom: AppSizes.s14),
-          child: Image.asset(
-            AppImages.logo,
-            fit: BoxFit.cover,
-          ),
-        ),
-        backgroundColor: AppColors.backgroundDarkGrey,
-      ),
+      appBar: const CustomAppBar(),
       body: Consumer<CharacterProvider>(builder: (context, provider, child) {
         if (provider.isLoading) {
           return const Center(
@@ -80,12 +71,11 @@ class _HomePageState extends State<HomePage> {
                             Provider.of<CharacterProvider>(context,
                                     listen: false)
                                 .incrementCharacterClick(character.id);
-                            Navigator.push(
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    CharacterDetailsPage(character: character),
-                              ),
+                              '/details',
+                              arguments:
+                                  character,
                             );
                           },
                         );

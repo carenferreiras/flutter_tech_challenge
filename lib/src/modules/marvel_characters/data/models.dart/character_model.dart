@@ -11,23 +11,31 @@ class CharacterModel extends Character {
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
     final thumbnail = json['thumbnail'];
-    final imageUrl = '${thumbnail['path']}.${thumbnail['extension']}';
+    
+    // Verificar se 'thumbnail' não é nulo antes de acessar 'path' e 'extension'
+    final imageUrl = thumbnail != null
+        ? '${thumbnail['path'] ?? ''}.${thumbnail['extension'] ?? ''}'
+        : '';
+
     return CharacterModel(
-      id: json['id'],
-      name: json['name'],
+      id: json['id'] ?? 0,
+      name: json['name'] ?? 'Unknown',
       description: json['description'] ?? 'No description available.',
       imageUrl: imageUrl,
     );
   }
 
   Map<String, dynamic> toJson() {
+    // Se 'imageUrl' não for vazio, separar em 'path' e 'extension'
+    final parts = imageUrl.isNotEmpty ? imageUrl.split('.') : ['', ''];
+
     return {
       'id': id,
       'name': name,
       'description': description,
       'thumbnail': {
-        'path': imageUrl.split('.').first,
-        'extension': imageUrl.split('.').last,
+        'path': parts[0], // Parte antes do ponto
+        'extension': parts.length > 1 ? parts[1] : '', // Parte depois do ponto
       },
     };
   }

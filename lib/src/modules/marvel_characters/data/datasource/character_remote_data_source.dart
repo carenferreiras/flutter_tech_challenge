@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../marvel_characters.dart';
 
@@ -12,9 +13,9 @@ class CharacterRemoteDataSource {
       final response = await dio.get(
         'https://gateway.marvel.com/v1/public/characters',
         queryParameters: {
-          'ts': '1',
-          'apikey': 'bc9b32ce3a1e6558d35eb1237611ed2e',
-          'hash': '4756f30101f4460894859d2aee1bd60d',
+          'ts': dotenv.env['TS'],
+          'apikey': dotenv.env['API_KEY'],
+          'hash': dotenv.env['HASH'], 
         },
       );
       final List results = response.data['data']['results'];
