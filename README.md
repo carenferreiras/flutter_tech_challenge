@@ -59,6 +59,9 @@ Esse README.md oferece uma visão clara sobre o projeto, suas funcionalidades, a
 
 ### Tela Inicial
 ![1](https://github.com/user-attachments/assets/4fabb57f-27a8-437f-9625-636d474d56c8)
+![Design sem nome-2](https://github.com/user-attachments/assets/dac42ab7-f0ca-4503-ace5-4155b56b92a8)
+
+
 
 
 ### Detalhes do Personagem
