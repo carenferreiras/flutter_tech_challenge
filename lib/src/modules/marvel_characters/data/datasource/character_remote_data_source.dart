@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-import '../../../../core/core.dart';
 import '../../marvel_characters.dart';
 
 class CharacterRemoteDataSource {
@@ -9,30 +7,18 @@ class CharacterRemoteDataSource {
 
   CharacterRemoteDataSource(this.dio);
 
-  Future<List<CharacterModel>> getCharacteres() async {
+  Future<List<CharacterModel>> getCharacters() async {
     try {
-      final String ts = DateTime.now().millisecondsSinceEpoch.toString();
-      final String publicKey = dotenv.env['API_KEY']!;
-      final String privateKey = dotenv.env['PRIVATE_KEY']!;
-      final String hash = HashGenerator.generateHash(ts, privateKey, publicKey);
-
       final response = await dio.get(
-          '${ApiConstants.baseUrl}${ApiConstants.charactersEndpoint}',
-          queryParameters: {
-            "apikey": publicKey,
-            "ts": ts,
-            "hash": hash,
-          });
-
-      if (response.statusCode == 200) {
-        final data = response.data['data']['results'] as List;
-        return data
-            .map((character) => CharacterModel.fromJson(character))
-            .toList();
-      } else {
-        throw Exception(
-            'Failed to load characters: ${response.statusCode}');
-      }
+        'https://gateway.marvel.com/v1/public/characters',
+        queryParameters: {
+          'ts': '1',
+          'apikey': 'bc9b32ce3a1e6558d35eb1237611ed2e',
+          'hash': '4756f30101f4460894859d2aee1bd60d',
+        },
+      );
+      final List results = response.data['data']['results'];
+      return results.map((json) => CharacterModel.fromJson(json)).toList();
     } catch (e) {
       throw Exception('Error fetching characters: $e');
     }

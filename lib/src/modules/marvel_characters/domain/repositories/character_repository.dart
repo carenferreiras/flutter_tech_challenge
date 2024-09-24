@@ -1,5 +1,5 @@
 import '../../marvel_characters.dart';
 
 abstract class CharacterRepository {
-  Future<List<Character>> getCharacteres();
+  Future<List<Character>> getCharacters();
 }
